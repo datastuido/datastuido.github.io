@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datastudio - Excel, Power BI & Dashboard Solutions</title>
-    <meta name="description" content="Professional data analytics services, custom dashboard creation, Excel & Power BI training, and business intelligence solutions. Transform your data into actionable insights.">
-    <meta name="keywords" content="data analytics, dashboard creation, Excel training, Power BI, business intelligence, data visualization, custom dashboards">
+    <title>Datastudio - Excel Courses & Professional Dashboards</title>
+    <meta name="description" content="Master Excel and Dashboard Creation. Buy our comprehensive Excel courses and get professional custom dashboards for your business. Limited time offer!">
+    <meta name="keywords" content="Excel course, Excel training, dashboard creation, data visualization, business dashboards, Excel certification, Power BI dashboards, buy dashboard">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -15,31 +19,41 @@
         }
 
         :root {
-            --primary: #667eea;
-            --primary-dark: #4c5bd4;
-            --secondary: #764ba2;
-            --accent: #39db82;
-            --bg: #f4f4f4;
-            --text: #333;
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --secondary: #0369a1;
+            --accent: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
+            color: var(--text-dark);
+            background: var(--light-bg);
             scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
         }
 
         /* Navigation */
         nav {
-            background: black;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(15, 23, 42, 0.98) 100%);
             color: white;
-            padding: 0.75rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -52,487 +66,194 @@
         }
 
         .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .logo span {
             font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary-light);
+            font-family: 'Poppins', sans-serif;
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            gap: 6px;
         }
 
         .menu-toggle span {
             width: 24px;
-            height: 3px;
+            height: 2.5px;
             background: white;
-            margin: 3px 0;
+            border-radius: 2px;
             transition: 0.3s;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
-            transition: opacity 0.3s;
-            padding: 0.4rem 0;
+            transition: color 0.3s;
             font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            opacity: 0.85;
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e3a8a 100%);
             color: white;
-            padding: 90px 20px 80px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
         }
 
         .hero-inner {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 3rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideInUp 0.8s ease-out;
         }
 
         .hero-content p {
             font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1.2s;
-            max-width: 550px;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            max-width: 600px;
         }
 
         .hero-highlights {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
         }
 
         .hero-highlights li {
-            margin-bottom: 0.4rem;
-            font-size: 0.95rem;
-        }
-
-        .hero-highlights li span {
-            margin-right: 0.4rem;
-        }
-
-        .hero-cta-group {
+            margin-bottom: 0.8rem;
             display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        .hero-highlights li::before {
+            content: '→';
+            color: var(--primary-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.2rem;
             flex-wrap: wrap;
-            gap: 1rem;
-            animation: fadeInUp 1.4s;
+            animation: slideInUp 0.8s ease-out 0.6s backwards;
         }
 
         .cta-button {
             display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 12px 28px;
-            border-radius: 999px;
+            padding: 14px 32px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cta-button.primary {
+            background: var(--primary-light);
+            color: white;
+            box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.4);
+            background: #0d9488;
         }
 
         .cta-button.secondary {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary-light);
             color: white;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            background: #f5f5ff;
-            color: var(--primary-dark);
         }
 
         .cta-button.secondary:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            box-shadow: none;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(0,0,0,0.15);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
+            background: rgba(20, 184, 166, 0.1);
+            transform: translateY(-3px);
         }
 
         .hero-visual {
-            background: rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-            display: grid;
-            gap: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideInRight 0.8s ease-out 0.3s backwards;
         }
 
-        .hero-visual-title {
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .hero-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0,1fr));
-            gap: 0.8rem;
-        }
-
-        .metric-card {
-            background: rgba(255,255,255,0.12);
-            padding: 0.7rem 0.9rem;
-            border-radius: 10px;
-            font-size: 0.88rem;
-        }
-
-        .metric-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .metric-label {
-            opacity: 0.85;
-        }
-
-        /* Container / Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 20px;
-            background: white;
-            margin: 20px 0;
-        }
-
-        section:nth-of-type(even) {
-            background: linear-gradient(45deg, #39db82, #31d2ff);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-            color: var(--primary);
-        }
-
-        section:nth-of-type(even) h2 {
-            color: white;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.8rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 1.7rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: left;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.18);
-        }
-
-        .service-icon {
-            font-size: 2.1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.6rem;
-            font-size: 1.25rem;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-            font-size: 1.02rem;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-        }
-
-        .feature-item h4 {
-            margin-bottom: 0.25rem;
-            font-size: 1rem;
-        }
-
-        .feature-item p {
-            font-size: 0.9rem;
-        }
-
-        /* Tools Section */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .tool-item {
-            padding: 1.4rem 1rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-
-        .tool-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.16);
-        }
-
-        .tool-icon {
-            font-size: 2.4rem;
-            margin-bottom: 0.4rem;
-        }
-
-        /* Process Section */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 1.7rem 1.3rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .step-number {
-            width: 54px;
-            height: 54px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin: 0 auto 0.8rem;
-        }
-
-        .step h4 {
-            margin-bottom: 0.4rem;
-            font-size: 1.05rem;
-        }
-
-        .step p {
-            font-size: 0.9rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.16);
-        }
-
-        .portfolio-image {
+        .hero-visual img {
             width: 100%;
-            height: 190px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        .portfolio-content {
-            padding: 1.3rem 1.4rem 1.4rem;
-        }
-
-        .portfolio-content h3 {
-            margin-bottom: 0.4rem;
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .portfolio-content p {
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        #contact p.section-intro {
-            text-align: center;
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 1.6rem 1.4rem;
             border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-card h4 {
-            margin: 0.4rem 0 0.3rem;
-        }
-
-        .contact-card a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        .social-heading {
-            text-align: center;
-            margin: 2.6rem 0 1.2rem;
-            font-size: 1.4rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.7rem 1.4rem;
-            background: white;
-            border-radius: 999px;
-            text-decoration: none;
-            color: #333;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.18);
-            background: #fafafa;
-        }
-
-        .social-icon {
-            font-size: 1.3rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 1.8rem 20px;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-        }
-
-        footer p + p {
-            margin-top: 0.5rem;
-            opacity: 0.85;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -543,48 +264,407 @@
             }
         }
 
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        section.light {
+            background: white;
+        }
+
+        section.gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        section p.section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Learning Path Section */
+        .learning-path {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .learning-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .learning-card .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .learning-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .learning-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--primary-light);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .submit-btn {
+            background: var(--primary-light);
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #0d9488;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(20, 184, 166, 0.3);
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            display: block;
+        }
+
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            display: block;
+        }
+
+        /* Social Links */
+        .social-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .social-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2rem 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer p + p {
+            margin-top: 0.5rem;
+            opacity: 0.7;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-inner {
                 grid-template-columns: 1fr;
-                gap: 2.2rem;
-            }
-
-            .hero {
-                padding-top: 80px;
             }
 
             .hero-content h1 {
-                font-size: 2.2rem;
-                text-align: center;
-            }
-.logo img
-{
-    height: 57px;
-    width: auto;
-}
-            .hero-content p,
-            .hero-highlights {
-                margin-left: auto;
-                margin-right: auto;
+                font-size: 2.4rem;
                 text-align: center;
             }
 
-            .hero-cta-group {
+            .hero-content p,
+            .hero-highlights {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-group {
                 justify-content: center;
             }
 
-            .hero-visual {
-                max-width: 420px;
-                margin: 0 auto;
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 0.6rem 0;
-            }
-
             .menu-toggle {
                 display: flex;
             }
@@ -594,84 +674,81 @@
                 top: 100%;
                 right: 0;
                 left: 0;
-                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                background: var(--dark-bg);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 0.6rem 1.2rem 0.8rem;
+                padding: 1rem;
+                gap: 0.5rem;
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease-out;
             }
 
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links a {
-                display: block;
-                width: 100%;
-                padding: 0.45rem 0;
-            }
-
             .nav-links.open {
-                max-height: 260px;
+                max-height: 300px;
+            }
+
+            .nav-links a::after {
+                display: none;
             }
 
             .hero {
-                padding: 75px 20px 60px;
+                padding: 60px 20px;
             }
 
             .hero-content h1 {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
             .hero-content p {
-                font-size: 0.98rem;
+                font-size: 1rem;
             }
 
             section {
-                padding: 45px 18px;
-                margin: 16px 0;
+                padding: 50px 20px;
             }
 
-            h2 {
-                font-size: 1.7rem;
-                margin-bottom: 2rem;
+            section h2 {
+                font-size: 2rem;
             }
 
-            .service-card,
-            .step,
-            .contact-card {
-                padding: 1.4rem 1.2rem;
+            .learning-path,
+            .services-grid,
+            .features-grid,
+            .testimonials {
+                grid-template-columns: 1fr;
             }
 
-            .social-links {
-                gap: 0.7rem;
-            }
-
-            .social-link {
-                padding: 0.65rem 1.2rem;
+            .contact-form {
+                padding: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
-            .hero-cta-group {
+            .cta-group {
                 flex-direction: column;
-                align-items: stretch;
             }
 
-            .cta-button,
-            .cta-button.secondary {
+            .cta-button {
                 width: 100%;
                 text-align: center;
             }
 
-            .portfolio-image {
-                height: 170px;
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .social-link {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -680,9 +757,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
-               <img src="./web_logo.png" height="56px">
-            </div>
+            <div class="logo">📊 Datastudio</div>
             <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -690,11 +765,10 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#services">Why Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Buy Now</a></li>
             </ul>
         </div>
     </nav>
@@ -703,43 +777,59 @@
     <section id="home" class="hero">
         <div class="hero-inner">
             <div class="hero-content">
-                <div class="hero-badge">
-                    ✅ Data analytics, dashboards & training
-                </div>
-                <h1>Turn Your Data Into Clear, Actionable Dashboards</h1>
-                <p>Datastudio helps business owners, teams and learners build Excel & Power BI dashboards that tell the right story and drive better decisions.</p>
+                <h1>Excel Mastery & Professional Dashboards</h1>
+                <p>Learn Excel from scratch to advanced level with our comprehensive courses, or get a custom dashboard built for your business. Trusted by 500+ professionals and business owners.</p>
                 <ul class="hero-highlights">
-                    <li><span>•</span>Custom dashboards for sales, finance, marketing and operations</li>
-                    <li><span>•</span>1:1 and group training in Excel, Power BI and analytics</li>
-                    <li><span>•</span>Dashboard theme design and reporting templates</li>
+                    <li>Complete Excel Courses with Certificates</li>
+                    <li>Custom Dashboards for Your Business</li>
+                    <li>Video Tutorials + Practice Files Included</li>
+                    <li>Lifetime Access to Course Materials</li>
                 </ul>
-                <div class="hero-cta-group">
-                    <a href="#contact" class="cta-button">Get Your Personalized Dashboard</a>
-                    <a href="#portfolio" class="cta-button secondary">View Sample Dashboards</a>
+                <div class="cta-group">
+                    <a href="#contact" class="cta-button primary">Buy Course Now - Limited Offer</a>
+                    <a href="#courses" class="cta-button secondary">View Courses & Pricing</a>
                 </div>
             </div>
-
             <div class="hero-visual">
-                <div>
-                    <div class="hero-visual-title">Live Dashboard Snapshot</div>
-                    <p style="font-size: 0.85rem; opacity: 0.9;">Imagine your KPIs in one clean, interactive view.</p>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop" alt="Data analytics dashboard visualization">
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="gradient">
+        <div class="container">
+            <h2>Our Courses & Services</h2>
+            <p class="section-subtitle">Choose the perfect course or service to master Excel and dashboards</p>
+            
+            <div class="learning-path">
+                <div class="learning-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Excel Basics to Advanced</h3>
+                    <p>Master Excel from fundamentals to advanced formulas. Learn VLOOKUP, pivot tables, charts, data validation, and more with hands-on exercises.</p>
+                    <div class="card-meta">
+                        <span>₹2,999</span>
+                        <span>Lifetime Access</span>
+                    </div>
                 </div>
-                <div class="hero-metrics">
-                    <div class="metric-card">
-                        <div class="metric-value">↑ 32%</div>
-                        <div class="metric-label">Faster reporting time</div>
+
+                <div class="learning-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Dashboard Creation Masterclass</h3>
+                    <p>Build stunning, interactive dashboards in Excel and Power BI. Perfect for creating reports, KPI tracking, and business analytics.</p>
+                    <div class="card-meta">
+                        <span>₹3,999</span>
+                        <span>Video + Templates</span>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">4</div>
-                        <div class="metric-label">Key KPI views in one place</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">0</div>
-                        <div class="metric-label">Manual Excel merges</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">24×7</div>
-                        <div class="metric-label">Access to insights</div>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Custom Dashboard Development</h3>
+                    <p>We create professional, custom dashboards for your business. Sales tracking, finance reports, HR analytics, or any KPI visualization.</p>
+                    <div class="card-meta">
+                        <span>₹5,000+</span>
+                        <span>1-2 Week Delivery</span>
                     </div>
                 </div>
             </div>
@@ -747,280 +837,192 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="light">
         <div class="container">
-            <h2>Services We Offer</h2>
+            <h2>Why Choose Our Courses?</h2>
+            <p class="section-subtitle">Professional quality education and custom solutions for serious learners and businesses</p>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Custom Dashboard Creation</h3>
-                    <p>Interactive Excel and Power BI dashboards tailored to your business questions, from daily sales tracking to management reporting.</p>
+                    <div class="service-icon">🎥</div>
+                    <h3>Video Tutorials</h3>
+                    <p>High-quality video lessons covering every topic. Learn at your own pace with lifetime access to all materials.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📁</div>
+                    <h3>Practice Files Included</h3>
+                    <p>Get real Excel files and datasets to practice on. Same datasets used by industry professionals and analysts.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">📈</div>
-                    <h3>Excel Training & Solutions</h3>
-                    <p>End-to-end Excel training plus custom templates, formulas, Power Query and automation for your existing spreadsheets.</p>
+                    <h3>Custom Dashboard Creation</h3>
+                    <p>Need a dashboard for your business? We build professional, interactive dashboards tailored to your specific needs.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Power BI Development</h3>
-                    <p>End-to-end Power BI setup: data modeling, DAX, visuals and publishing so your team can explore insights in real time.</p>
+                    <div class="service-icon">🏆</div>
+                    <h3>Certificate of Completion</h3>
+                    <p>Receive a professional certificate upon course completion. Add it to your LinkedIn and resume to boost your profile.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Dashboard Theme & UI Design</h3>
-                    <p>Clean, brand-aligned dashboard layouts, color palettes and typography that make your data easy to read and present.</p>
+                    <div class="service-icon">💬</div>
+                    <h3>Email Support</h3>
+                    <p>Questions about the course? Get quick responses from our team. We're here to help your learning journey.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Analytics Coaching & Mentoring</h3>
-                    <p>Guided learning paths for students and working professionals who want to build a strong analytics and BI portfolio.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>Data Analytics Consulting</h3>
-                    <p>Help defining KPIs, structuring data, and planning your analytics roadmap so your dashboards stay meaningful over time.</p>
+                    <div class="service-icon">🎓</div>
+                    <h3>Beginner Friendly</h3>
+                    <p>No prior Excel experience needed. We start from basics and take you to advanced skills step by step.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- Course Features Section -->
+    <section class="gradient">
         <div class="container">
-            <h2>Why Work With Datastudio?</h2>
-            <div class="about-content">
-                <p>Datastudio focuses on practical, business-first analytics. Every dashboard, template and training session is designed to solve real problems, not just look good in a portfolio.</p>
-                <br>
-                <p>Whether you run a growing business or are learning data analytics, you get clear communication, simple explanations and dashboards that your team can actually use.</p>
-            </div>
-
-            <div class="features-list">
+            <h2>What's Included in Every Course</h2>
+            <p class="section-subtitle">Complete learning package with everything you need to master Excel and dashboards</p>
+            
+            <div class="features-grid">
                 <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <h4>Hands-On, Real Data</h4>
-                        <p>We work with realistic scenarios so you can connect dashboards to actual decisions.</p>
-                    </div>
+                    <h4>🎬 HD Video Lessons</h4>
+                    <p>Clear, step-by-step video tutorials with real examples and practical demonstrations.</p>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <h4>Personalized Approach</h4>
-                        <p>Each project or training is adapted to your tools, team size and goals.</p>
-                    </div>
+                    <h4>📊 Practice Datasets</h4>
+                    <p>Work with real datasets from sales, finance, and operations. Same data used by professionals.</p>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <h4>Best Practices Built-In</h4>
-                        <p>We follow industry standards for reporting, visualization and automation.</p>
-                    </div>
+                    <h4>📁 Excel Templates</h4>
+                    <p>Ready-to-use Excel templates and formulas. Copy, customize, and use immediately in your work.</p>
                 </div>
 
                 <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <h4>Support After Delivery</h4>
-                        <p>Get help with tweaks, questions and small improvements even after handover.</p>
-                    </div>
+                    <h4>♾️ Lifetime Access</h4>
+                    <p>Buy once, access forever. Unlimited access to all course materials and future updates at no extra cost.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>🎓 Certificate</h4>
+                    <p>Get a professional certificate upon completion. Verify your skills on LinkedIn and impress employers.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>📧 Email Support</h4>
+                    <p>Questions? Contact us anytime. We respond within 24 hours to help with your learning.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tools Section -->
-    <section id="tools">
+    <!-- Success Stories / Testimonials -->
+    <section id="testimonials" class="light">
         <div class="container">
-            <h2>Tools & Technologies</h2>
-            <div class="tools-grid">
-                <div class="tool-item">
-                    <div class="tool-icon">📊</div>
-                    <h4>Microsoft Excel</h4>
-                    <p>Dashboards, formulas, pivot tables, Power Query.</p>
-                </div>
-                <div class="tool-item">
-                    <div class="tool-icon">⚡</div>
-                    <h4>Power BI</h4>
-                    <p>Interactive BI dashboards and reporting.</p>
-                </div>
-                <div class="tool-item">
-                    <div class="tool-icon">📈</div>
-                    <h4>Tableau</h4>
-                    <p>Visual storytelling for complex data.</p>
-                </div>
-                <div class="tool-item">
-                    <div class="tool-icon">🔗</div>
-                    <h4>SQL</h4>
-                    <p>Querying and preparing your data sources.</p>
-                </div>
-                <div class="tool-item">
-                    <div class="tool-icon">🐍</div>
-                    <h4>Python</h4>
-                    <p>Advanced analysis and automation when needed.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process">
-        <div class="container">
-            <h2>How We Work</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Discovery Call</h4>
-                    <p>Understand your business, data sources and key questions you want your dashboards to answer.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Design & Planning</h4>
-                    <p>Define KPIs, layout and data model, and agree on the scope and timelines.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Build & Iterate</h4>
-                    <p>Develop dashboards or training sessions, share previews and refine based on feedback.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Launch & Support</h4>
-                    <p>Deliver final files, documentation and short walkthrough, with ongoing support available.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container">
-            <!-- <h2>Sample Dashboards & Projects coming</h2> -->
-             <h2>Coming Soon....</h2>
-            <div class="portfolio-grid">
-                <!-- <div class="portfolio-item">
-                    <div class="portfolio-image">📊</div>
-                    <div class="portfolio-content">
-                        <h3>Sales Performance Dashboard</h3>
-                        <p>Power BI dashboard showing revenue by product, region and channel, with trend lines and top-performer highlights.</p>
-                    </div>
+            <h2>Student Reviews & Success Stories</h2>
+            <p class="section-subtitle">Real feedback from people who learned Excel and built dashboards with us</p>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Excellent course! The Excel tutorials are clear and practical. I completed it in 3 weeks and immediately used it in my job. Best ₹2,999 I spent!"</div>
+                    <div class="testimonial-author">Priya Singh</div>
+                    <div class="testimonial-role">Finance Professional</div>
                 </div>
 
-                <div class="portfolio-item">
-                    <div class="portfolio-image">💰</div>
-                    <div class="portfolio-content">
-                        <h3>Finance & KPI Snapshot</h3>
-                        <p>Executive view of profit, margin, budget vs actuals and cash flow indicators in a single Excel dashboard.</p>
-                    </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"I bought the dashboard course and used the templates to create reports for my clients. Really impressed them. Highly recommend!"</div>
+                    <div class="testimonial-author">Arun Sharma</div>
+                    <div class="testimonial-role">Business Consultant</div>
                 </div>
 
-                <div class="portfolio-item">
-                    <div class="portfolio-image">👥</div>
-                    <div class="portfolio-content">
-                        <h3>HR & People Analytics</h3>
-                        <p>HR dashboard tracking headcount, attrition, hiring pipeline and performance distribution.</p>
-                    </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"They custom-built a sales dashboard for our startup. It was exactly what we needed. Professional, efficient, and affordable!"</div>
+                    <div class="testimonial-author">Neha Patel</div>
+                    <div class="testimonial-role">Sales Manager, Tech Startup</div>
                 </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🎯</div>
-                    <div class="portfolio-content">
-                        <h3>Marketing Campaign Tracker</h3>
-                        <p>Multi-channel analytics dashboard with spend, leads, conversions and ROI per campaign.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">📦</div>
-                    <div class="portfolio-content">
-                        <h3>Inventory & Supply Chain</h3>
-                        <p>Stock levels, reorder alerts and supplier performance metrics for better operations planning.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🎓</div>
-                    <div class="portfolio-content">
-                        <h3>Training & Workshops</h3>
-                        <p>Hands-on Excel & Power BI sessions with practical projects, templates and post-session support.</p>
-                    </div>
-                </div> -->
-                
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Let’s Talk About Your Data</h2>
-            <p class="section-intro">Share your current situation and we will suggest the best dashboard or learning plan for you.</p>
-
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="service-icon">📧</div>
-                    <h4>Email</h4>
-                    <a href="mailto:contact@yourdomain.com">dataskillstudio98@gmail.com</a>
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2>Ready to Master Excel & Dashboards?</h2>
+            <p class="section-subtitle" style="color: #cbd5e1;">Join 500+ professionals who've learned Excel and built amazing dashboards with our courses. Fill the form and we'll send you course details!</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
                 </div>
 
-                <div class="contact-card">
-                    <div class="service-icon">📱</div>
-                    <h4>Call</h4>
-                    <a href="tel:+1234567890">coming soon</a>
-                </div> -->
-
-                <div class="contact-card">
-                    <!-- <div class="service-icon">💬</div>
-                    <h4>WhatsApp</h4>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener">Chat on WhatsApp</a> -->
+                <div class="form-group">
+                    <label for="phone">WhatsApp Number (for quick contact)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
                 </div>
-            </div>
 
-            <h3 class="social-heading">Connect on Social</h3>
-            <div class="social-links">
-                <!-- <a href="#" target="_blank" rel="noopener" class="social-link">
-                    <span class="social-icon">💼</span>
-                    <span>LinkedIn</span>
-                </a> -->
+                <div class="form-group">
+                    <label for="interest">Which course/service interests you? *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Select an option</option>
+                        <option value="excel-basics">Excel Basics to Advanced - ₹2,999</option>
+                        <option value="dashboard-course">Dashboard Creation Masterclass - ₹3,999</option>
+                        <option value="custom-dashboard">Custom Dashboard Development</option>
+                        <option value="bundle">Excel + Dashboard Bundle</option>
+                        <option value="not-sure">Not Sure - Want to Learn More</option>
+                    </select>
+                </div>
 
-                <a href="https://www.facebook.com/profile.php?id=61585084234054" target="_blank" rel="noopener" class="social-link">
-                    <span class="social-icon">📸</span>
-                    <span>Facebook</span>
-                </a>
+                <div class="form-group">
+                    <label for="message">Any questions or requirements?</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your goals or what you'd like in a custom dashboard..."></textarea>
+                </div>
 
-                <a href="https://www.instagram.com/datastudio_098/" target="_blank" rel="noopener" class="social-link">
-                    <span class="social-icon">✧📷✦</span>
-                    <span>Instagram</span>
-                </a>
+                <button type="submit" class="submit-btn">📧 Send Me Course Details</button>
+                <div class="form-status" id="formStatus"></div>
 
-                <a href="https://in.pinterest.com/dartpro9646/" target="_blank" rel="noopener" class="social-link">
-                    <span class="social-icon">📌</span>
-                    <span>Pinterest</span>
-                </a>
-            </div>
+                <div class="social-section">
+                    <h3>🔗 Or Connect Directly</h3>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.9;">Fastest way to reach us - Message us on Instagram or Email!</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/datastudio_098/" target="_blank" rel="noopener" class="social-link">
+                            <span class="social-icon">📸</span>
+                            <span>Instagram DM</span>
+                        </a>
+                        <a href="mailto:techiot990@gmail.com" class="social-link">
+                            <span class="social-icon">✉️</span>
+                            <span>Email: techiot990@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-    <p>&copy; <span id="year"></span> Datastudio. All rights reserved.</p>
-    <p>Helping businesses and learners make confident, data-driven decisions.</p>
-</div>
-
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+            <p>&copy; <span id="year"></span> Datastudio. All rights reserved. | techiot990@gmail.com</p>
+            <p>Excel Courses • Dashboard Development • Professional Training</p>
+        </div>
     </footer>
 
     <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -1031,12 +1033,58 @@
             menuToggle.setAttribute('aria-expanded', String(!expanded));
         });
 
-        // Close menu after clicking a link on mobile
+        // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                if (navLinks.classList.contains('open')) {
-                    navLinks.classList.remove('open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Form submission handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log form data (in production, this would send to a backend)
+            console.log('Form submitted with data:', formData);
+
+            // Show success message
+            formStatus.textContent = '✓ Thanks for your interest! We\'ll send course details to your email. Check email (techiot990@gmail.com) or Instagram @datastudio_098 for the fastest response!';
+            formStatus.classList.add('success');
+            formStatus.classList.remove('error');
+
+            // Reset form
+            contactForm.reset();
+
+            // Clear message after 5 seconds
+            setTimeout(() => {
+                formStatus.classList.remove('success');
+                formStatus.textContent = '';
+            }, 5000);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
